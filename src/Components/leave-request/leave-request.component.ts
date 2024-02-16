@@ -87,6 +87,7 @@ export class LeaveRequestComponent implements OnInit {
         this.leaveTypes = data.filter(type => type.leaveTypeName !== 'Paternity Leave');
       } else {
         this.leaveTypes = data; // If gender is not specified or 'both', display all leave types
+        // If gender is not specified or 'both', display all leave types
       }
     });
   }

@@ -1,0 +1,30 @@
+.navbar-brand {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.navbar-nav .nav-link {
+  font-size: 18px;
+  margin-right: 15px;
+  padding-right: 30px;
+}
+
+.icons span {
+  margin-right: 25px;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+header {
+  margin-bottom: 50px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+.main-content {
+  position: relative;
+  top: 100px;
+}

@@ -1,0 +1,25 @@
+<h2>Add Leave Type</h2>
+
+<form #leaveTypeForm="ngForm" (ngSubmit)="submitForm()">
+  <div class="form-group">
+    <label for="leaveTypeName">Leave Type Name:</label>
+    <input type="text" id="leaveTypeName" name="leaveTypeName" [(ngModel)]="leaveType.leaveTypeName" required>
+    <div *ngIf="leaveTypeForm.controls['leaveTypeName'].invalid && leaveTypeForm.controls['leaveTypeName'].touched" class="error-message">
+      Leave Type Name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="defaultLeaves">Default Leaves:</label>
+    <input type="number" id="defaultLeaves" name="defaultLeaves" [(ngModel)]="leaveType.defaultLeaves" required>
+    <div *ngIf="leaveTypeForm.controls['defaultLeaves'].invalid && leaveTypeForm.controls['defaultLeaves'].touched" class="error-message">
+      Default Leaves is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="leaveTypeForm.invalid">Submit</button>
+
+  <div *ngIf="leaveTypeSuccess" class="success-message">
+    Leave Type added successfully!
+  </div>
+</form>

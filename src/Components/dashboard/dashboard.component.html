@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h4>Dashboard</h4>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a routerLink="leaverequest" routerLinkActive="active">Apply For Leave</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="leavestatus" routerLinkActive="active">Leave Status</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="leavebalance" routerLinkActive="active">Leave Balance</a>
+          </li>
+          
+          <!-- <li class="nav-item">
+            <a routerLink="myleaves" routerLinkActive="active">My Leaves</a>
+          </li> -->
+         
+        </ul>
+      </div>
+    </div>
+    <div class="col-9" style="padding-right: 10%;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-3">
+        <div class="sidebar">
+          <div class="sidebar-header">
+            <h3>Admin</h3>
+            
+          </div>
+          <ul class="nav">
+            <li class="nav-item">
+              <a routerLink="leaverequests" routerLinkActive="active">Leave Requests</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="employees" routerLinkActive="active">Employees</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="leavetypes" routerLinkActive="active">Leave Types</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-9" style="padding-right: 10%;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+

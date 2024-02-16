@@ -1,0 +1,49 @@
+.sidebar {
+    position: fixed;
+    top: 62px; /* Adjust to match your navbar height */
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+  }
+  
+  .dashboard {
+    padding: 20px;
+    background-color: #444; /* Adjust the background color for the dashboard */
+  }
+  
+  .nav {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav-item {
+    padding: 10px 20px;
+  }
+  
+  .nav-item a {
+    color: #fff;
+    text-decoration: none;
+    display: block;  
+  }
+  
+  .nav-item a:hover {
+    display: flex;
+    background-color: #555;
+  }
+  
+  .active {
+    background-color: #555;
+  }
+  
+  ul{
+    display: block;
+  }
+  
+  
+  

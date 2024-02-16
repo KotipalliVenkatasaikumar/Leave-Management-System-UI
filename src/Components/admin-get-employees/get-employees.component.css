@@ -1,0 +1,35 @@
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-table th, .employee-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.employee-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.employee-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.employee-table tbody tr:hover {
+    background-color: #ddd;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  

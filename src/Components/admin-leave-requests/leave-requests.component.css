@@ -1,0 +1,47 @@
+/* Styles for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+ 
+  button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button.accept {
+    background-color: #28a745; 
+    
+  }
+  
+  button.reject {
+    background-color: #dc3545; 
+  }
+  .button-gap {
+    margin-left: 10px; 
+}
+
+.rejection{
+  height: 50px;
+  text-align: start
+
+}
+
+
+  
+  

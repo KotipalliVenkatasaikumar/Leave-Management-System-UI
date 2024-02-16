@@ -1,0 +1,20 @@
+<div>
+    <h2>List of LeaveTypes</h2>
+    <table class="leave-table">
+        <thead>
+            <tr>
+                <th>leaveType-Id</th>
+                <th>leaveTypeName</th>
+                <th>defaultLeaves </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let leaveTypes of  adminLeaveLeaveTypes">
+                <td>{{ leaveTypes.leaveTypeId }}</td>
+                <td>{{ leaveTypes.leaveTypeName }}</td>
+                <td>{{ leaveTypes.defaultLeaves }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="button" (click)="navigateToAddLeaveType()">Add LeaveType</button>
+</div>

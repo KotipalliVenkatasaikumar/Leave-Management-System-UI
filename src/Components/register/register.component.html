@@ -1,0 +1,46 @@
+<h2>Employee Registration</h2>
+
+<form (ngSubmit)="registerEmployee()" #employeeForm="ngForm">
+
+    <label for="employeename">Employee Name:</label>
+    <input type="text" id="employeename" name="employeename" [(ngModel)]="employee['employeeName']" required>
+    <div *ngIf="employeeForm.controls['employeename']?.invalid && employeeForm.controls['employeename']?.touched  && !registrationSuccess"
+        style="color: red;">
+        Employee Name is required.
+    </div>
+
+    <label for="gender">Gender:</label>
+    <input type="text" id="gender" name="gender" [(ngModel)]="employee['gender']" required>
+    <div *ngIf="employeeForm.controls['gender']?.invalid && employeeForm.controls['gender']?.touched  && !registrationSuccess"
+        style="color: red;">
+        Gender is required.
+    </div>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="employee['email']" required>
+    <div *ngIf="employeeForm.controls['email']?.invalid && employeeForm.controls['email']?.touched && !registrationSuccess"
+        style="color: red;">
+        Email is required and must be a valid email address.
+    </div>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" [(ngModel)]="employee['password']" required minlength="8">
+    <div *ngIf="employeeForm.controls['password']?.invalid && employeeForm.controls['password']?.touched && !registrationSuccess"
+        style="color: red;">
+        Password is required and must be at least 8 characters long.
+    </div>
+
+    <label for="role">Role:</label>
+    <input type="text" id="role" name="role" [(ngModel)]="employee['role']" required>
+    <div *ngIf="employeeForm.controls['role']?.invalid && employeeForm.controls['role']?.touched  && !registrationSuccess" style="color: red;">
+        Role is required.
+    </div>
+
+    <button type="submit" [disabled]="employeeForm.invalid">Register</button>
+
+   
+    <div *ngIf="registrationSuccess">
+        <p>Registration successful! You can now <a routerLink="/login">login</a>.</p>
+    </div>
+
+</form>

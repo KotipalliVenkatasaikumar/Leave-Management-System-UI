@@ -1,0 +1,28 @@
+<div class="leave-request-list">
+    <h2>Leave Status</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Leave Type</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Description</th>
+          <!-- <th>Manager ID</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leaveRequest of leaveRequests">
+          <td>{{ leaveRequest.startDate }}</td>
+          <td>{{ leaveRequest.endDate }}</td>
+          <td>{{ leaveRequest.leaveTypeId ? leaveRequest.leaveTypeId.leaveTypeName : 'N/A' }}</td>
+          <td>{{ leaveRequest.reason }}</td>
+          <td>{{ leaveRequest.status }}</td>
+          <td>{{leaveRequest.description}}</td>
+          <!-- <td>{{ leaveRequest.managerId }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

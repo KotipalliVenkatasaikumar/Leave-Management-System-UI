@@ -1,0 +1,22 @@
+<div>
+  <h2>Login</h2>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+   
+    <label for="email">Username:</label>
+    <input type="email" id="email" placeholder="email" name="email" [(ngModel)]="loginDto.email" required email>
+    <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+      <div *ngIf="loginForm.controls['email'].hasError('required')" style="color: red;">Email is required.</div>
+      <div *ngIf="loginForm.controls['email'].hasError('email')" style="color: red;">Invalid email address.</div>
+    </div>
+
+    <!-- Password Input -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="password" name="password" [(ngModel)]="loginDto.password" required>
+    <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+      <div *ngIf="loginForm.controls['password'].hasError('required')" style="color: red;">Password is required.</div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

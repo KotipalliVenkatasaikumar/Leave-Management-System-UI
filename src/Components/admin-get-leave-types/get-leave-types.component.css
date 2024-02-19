@@ -20,6 +20,7 @@
 .leave-table tbody tr:hover {
     background-color: #ddd;
 }
+
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -31,5 +32,30 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+  }
+  button.Edit {
+    background-color: #94ab6e; 
+    
+  }
+  
+  button.delete {
+    background-color: #dc3545; 
+  }
+  .button-gap {
+    margin-left: 10px; 
+}
+
+.rejection{
+  height: 50px;
+  text-align: start
+
+}
+
+   button {
+    padding: 5px 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
   }
   

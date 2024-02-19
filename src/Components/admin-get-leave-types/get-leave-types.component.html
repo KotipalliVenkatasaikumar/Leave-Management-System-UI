@@ -1,20 +1,34 @@
 <div>
-    <h2>List of LeaveTypes</h2>
+    <div style="display: flex; align-items: center;">
+        <span>
+            <h2>List of LeaveTypes</h2>
+        </span>
+        <span style="margin-left: auto;">
+            <button class="button" (click)="navigateToAddLeaveType()">Add LeaveType</button>
+        </span>
+    </div>
     <table class="leave-table">
         <thead>
             <tr>
                 <th>leaveType-Id</th>
                 <th>leaveTypeName</th>
                 <th>defaultLeaves </th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let leaveTypes of  adminLeaveLeaveTypes">
-                <td>{{ leaveTypes.leaveTypeId }}</td>
-                <td>{{ leaveTypes.leaveTypeName }}</td>
-                <td>{{ leaveTypes.defaultLeaves }}</td>
+            <tr *ngFor="let leaveType of  adminLeaveLeaveTypes">
+                <td>{{ leaveType.leaveTypeId }}</td>
+                <td>{{ leaveType.leaveTypeName }}</td>
+                <td>{{ leaveType.defaultLeaves }}</td>
+
+                <td><button class="Edit" (click)="navigateToEditLeave(leaveType)">Edit</button>
+                    <span class="button-gap"></span>
+                    <button class="delete" (click)="navigateToEDeleteLeave(leaveType)">Delete</button>
+                </td>
+
             </tr>
         </tbody>
     </table>
-    <button class="button" (click)="navigateToAddLeaveType()">Add LeaveType</button>
+
 </div>

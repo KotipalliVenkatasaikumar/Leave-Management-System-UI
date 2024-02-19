@@ -1,33 +1,29 @@
-.rejected {
-  color: red;
-}
-
-.approved {
-  color: green;
-}
-
-.pending {
-  color: lightgreen;
-}
 
 .leave-request-list {
   margin-top: 20px;
 }
 
-table {
+
+
+.leave-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-table, th, td {
-  border: 1px solid #ddd;
+.leave-table th, .leave-table td {
   padding: 8px;
+  border-bottom: 1px solid #ddd;
 }
 
-th {
+.leave-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.leave-table tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-tr:hover {
-  background-color: #f2f2f2;
+.leave-table tbody tr:hover {
+  background-color: #ddd;
 }

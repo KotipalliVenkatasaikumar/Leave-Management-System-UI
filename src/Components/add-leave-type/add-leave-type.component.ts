@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LeaveType } from 'src/Models/leaveType.model';
 import { LeavetypesService } from 'src/Services/leavetypes.service';
 
@@ -13,7 +14,7 @@ export class AddLeaveTypeComponent implements OnInit {
   leaveTypeSuccess: boolean = false;
   @ViewChild('leaveTypeForm') leaveTypeForm!: NgForm;
 
-  constructor(private leaveTypeService: LeavetypesService) { }
+  constructor(private leaveTypeService: LeavetypesService , private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,7 @@ export class AddLeaveTypeComponent implements OnInit {
         if (response !== null) {
           this.leaveTypeSuccess = true;
           console.log("Leave type added successfully!");
+          this.router.navigate(['/admin/leavetypes']); // Navigate to leave types list page
         }
       });
     }

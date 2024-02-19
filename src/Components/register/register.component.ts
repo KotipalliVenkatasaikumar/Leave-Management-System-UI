@@ -10,7 +10,7 @@ import { Employee } from 'src/Models/employe.model';
 })
 export class RegisterComponent implements OnInit {
   registrationSuccess = false;
-  employee: Employee = new Employee("", "", "", "", "");
+  employee: Employee = new Employee(0,"", "", "", "", "");
 
   constructor(private employeeService: EmployeeServiceService, private router: Router) { }
 
@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
 
       // Reset the form
       this.employee = {
+        employeeId:0,
         employeeName: '',
         gender: '',
         email: '',

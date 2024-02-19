@@ -1,0 +1,32 @@
+<div>
+    <div style="display: flex; align-items: center;">
+        <span>
+            <h2>List of Holidays</h2>
+        </span>
+        <span style="margin-left: auto;">
+            <button class="button" (click)="navigateToAddHoliday()">Add Holiday</button>
+        </span>
+    </div>
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let holiday of holidays">
+          <td>{{ holiday.id }}</td>
+          <td>{{ holiday.date }}</td>
+          <td>{{ holiday.name }}</td>
+          <td><button class="Edit" (click)="navigateToEditHoliday(holiday)">Edit</button>
+            <span class="button-gap"></span>
+            <button class="delete" (click)="navigateToEDeleteHoliday(holiday)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

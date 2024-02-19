@@ -22,9 +22,16 @@ import { AddLeaveTypeComponent } from '../Components/add-leave-type/add-leave-ty
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { RejectionDialogComponent } from './rejection-dialog/rejection-dialog.component'; 
+
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { EmployeeEditComponent } from '../Components/admin-employee-edit/employee-edit.component';
+import { HolidayCalenderComponent } from '../Components/admin-holiday-calender/holiday-calender.component';
+import { LeaveTypeEditComponent } from '../Components/admin-leave-type-edit/leave-type-edit.component';
+import { AddHolidayComponent } from '../Components/add-holiday/add-holiday.component';
+import { EditHolidayComponent } from '../Components/edit-holiday/edit-holiday.component';
+import { UserHolidayCalenderComponent } from '../Components/user-holiday-calender/user-holiday-calender.component';
+
 
 @NgModule({
   declarations: [
@@ -42,15 +49,21 @@ import { MatTableModule } from '@angular/material/table';
     LeaveBalanceComponent,
     MyLeavesComponent,
     AddLeaveTypeComponent,
-    RejectionDialogComponent,
-    
-  
+    EmployeeEditComponent,
+    HolidayCalenderComponent,
+    LeaveTypeEditComponent,
+    AddHolidayComponent,
+    EditHolidayComponent,
+    UserHolidayCalenderComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

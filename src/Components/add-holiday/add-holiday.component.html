@@ -1,0 +1,25 @@
+<h2>Add Holiday</h2>
+
+<form #holidayForm="ngForm" (ngSubmit)="submitForm()">
+  <div class="form-group">
+    <label for="holidayName">Name:</label>
+    <input type="text" id="holidayName" name="holidayName" [(ngModel)]="holiday.name" required>
+    <div *ngIf="holidayForm.controls['holidayName'].invalid && holidayForm.controls['holidayName'].touched" class="error-message">
+      Name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="holidayDate">Date:</label>
+    <input type="date" id="holidayDate" name="holidayDate" [(ngModel)]="holiday.date" required>
+    <div *ngIf="holidayForm.controls['holidayDate'].invalid && holidayForm.controls['holidayDate'].touched" class="error-message">
+      Date is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="holidayForm.invalid">Submit</button>
+
+  <div *ngIf="holidaySuccess" class="success-message">
+    Holiday added successfully!
+  </div>
+</form>

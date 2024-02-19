@@ -12,6 +12,12 @@ import { LeaveStatusComponent } from 'src/Components/leave-status/leave-status.c
 import { LeaveBalanceComponent } from 'src/Components/leave-balance/leave-balance.component';
 import { MyLeavesComponent } from 'src/Components/my-leaves/my-leaves.component';
 import { AddLeaveTypeComponent } from 'src/Components/add-leave-type/add-leave-type.component';
+import { EmployeeEditComponent } from 'src/Components/admin-employee-edit/employee-edit.component';
+import { HolidayCalenderComponent } from 'src/Components/admin-holiday-calender/holiday-calender.component';
+import { LeaveTypeEditComponent } from 'src/Components/admin-leave-type-edit/leave-type-edit.component';
+import { AddHolidayComponent } from 'src/Components/add-holiday/add-holiday.component';
+import { EditHolidayComponent } from 'src/Components/edit-holiday/edit-holiday.component';
+import { UserHolidayCalenderComponent } from 'src/Components/user-holiday-calender/user-holiday-calender.component';
 
 
 const routes: Routes = [
@@ -40,7 +46,11 @@ const routes: Routes = [
       },
       {
         path: 'myleaves', component: MyLeavesComponent
-      }
+      },
+      {
+        path: 'userholidayCalender', component: UserHolidayCalenderComponent
+      },
+
 
 
     ]
@@ -70,6 +80,24 @@ const routes: Routes = [
       {
         path: 'register', component: RegisterComponent
       },
+      {
+        path: 'editemployee', component: EmployeeEditComponent
+      },
+      {
+        path: 'holidayCalender', component: HolidayCalenderComponent
+      },
+      {
+        path: 'editLeaveType', component:LeaveTypeEditComponent
+      },
+      {
+        path : 'addHoliday', component:AddHolidayComponent
+      },
+      {
+        path: 'editHoliday', component:EditHolidayComponent
+      }
+
+
+
     ]
   },
 

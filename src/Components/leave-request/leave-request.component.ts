@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class LeaveRequestComponent implements OnInit {
 
-  public employee = new Employee('', '', '', '', '');
+  public employee = new Employee(0,'', '', '', '', '');
   public selectedLeaveType: LeaveType | null = null;
 
   public gender: string | undefined;

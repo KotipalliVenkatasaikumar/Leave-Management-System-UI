@@ -11,6 +11,7 @@ export class AdminLeaveTypesService {
   private apiUrl = 'http://localhost:8083/api/leave'; 
 
   constructor(private http:HttpClient) { }
+  
   ListOfLeaveTypes(): Observable<LeaveType[]> {
     return this.http.get<LeaveType[]>(this.apiUrl);
   }

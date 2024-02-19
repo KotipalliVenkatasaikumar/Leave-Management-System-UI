@@ -15,7 +15,7 @@ export class GetLeaveTypesComponent implements OnInit {
 
 
 
-  constructor(private getleaveTypes: AdminLeaveTypesService, private router: Router) { }
+  constructor( private leavTypeService:LeavetypesService , private router: Router) { }
 
   // listOfLeaves$!: Observable<LeaveType[]>;
   adminLeaveLeaveTypes: LeaveType[] | undefined;
@@ -26,7 +26,7 @@ export class GetLeaveTypesComponent implements OnInit {
   }
 
   loadLeaveRequests() {
-    this.getleaveTypes.ListOfLeaveTypes().subscribe(requests => {
+    this.leavTypeService.getLeaveTypes().subscribe(requests => {
 
       console.log(requests)
       this.adminLeaveLeaveTypes = requests;
@@ -38,6 +38,30 @@ export class GetLeaveTypesComponent implements OnInit {
   navigateToAddLeaveType(): void {
     this.router.navigateByUrl('admin/addLeaveType');
   }
+
+
+
+  navigateToEditLeave(leaveType:LeaveType) {
+    console.log(leaveType)
+    this.router.navigate(['/admin/editLeaveType'], { state: { leaveType: leaveType } });
+  }
+
+  navigateToEDeleteLeave(leaveType: LeaveType) {
+    if (confirm('Are you sure you want to delete this leavetype?')) {
+      this.leavTypeService.deleteLeaveType(leaveType.leaveTypeId).subscribe(
+        () => {
+          console.log('Employee deleted successfully.');
+          this.loadLeaveRequests(); // Refresh employee list after deletion
+        },
+        (error: any) => {
+          console.error('Error deleting leavetype:', error);
+        }
+      );
+    }
+  }
+
+   
+    
 }
 
 

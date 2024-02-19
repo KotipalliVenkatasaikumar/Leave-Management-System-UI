@@ -1,0 +1,15 @@
+<div>
+    <h2>Edit Leave Type</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="leaveTypeName">Leave Type Name</label>
+        <input type="text" id="leaveTypeName" [(ngModel)]="leaveType.leaveTypeName" name="leaveTypeName" required>
+      </div>
+      <div>
+        <label for="defaultLeaves">Default Leaves</label>
+        <input type="number" id="defaultLeaves" [(ngModel)]="leaveType.defaultLeaves" name="defaultLeaves" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  

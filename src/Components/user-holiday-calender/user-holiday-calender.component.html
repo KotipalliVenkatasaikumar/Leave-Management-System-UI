@@ -1,16 +1,16 @@
 <div>
-   <h2>List of Holidays</h2>
+    <h2>List of Holidays</h2>
     <table class="employee-table">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>#</th>
                 <th>Date</th>
                 <th>Name</th>
-             </tr>
+            </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let holiday of holidays">
-                <td>{{ holiday.id }}</td>
+            <tr *ngFor="let holiday of holidays ;let i =index">
+                <td>{{i + 1}}</td>
                 <td>{{ holiday.date }}</td>
                 <td>{{ holiday.name }}</td>
             </tr>

@@ -3,13 +3,15 @@
     <table class="leave-table">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Leave Type</th>
                 <th>Current Balance</th>
                 <th>Default Allocation </th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let balance of leaveBalance">
+            <tr *ngFor="let balance of leaveBalance; let i =index">
+                <td>{{ i + 1 }}</td>
                 <td>{{ balance.leaveType.leaveTypeName }}</td>
                 <td>{{ balance.leaveBalance }}</td>
                 <td>{{ balance.leaveType.defaultLeaves }}</td>

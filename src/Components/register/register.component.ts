@@ -11,11 +11,14 @@ import { Employee } from 'src/Models/employe.model';
 export class RegisterComponent implements OnInit {
   registrationSuccess = false;
   employee: Employee = new Employee(0,"", "", "", "", "");
+  employee1:Employee[] |undefined
+  role: string | undefined;
 
   constructor(private employeeService: EmployeeServiceService, private router: Router) { }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    
   }
 
   registerEmployee(): void {
@@ -25,6 +28,7 @@ export class RegisterComponent implements OnInit {
       if (response !== null) {
         this.registrationSuccess = true;
         alert("Registered successfully")
+        // this.router.navigate(['/admin/employees']); // Navigate to employee list page
       }
 
       // Reset the form

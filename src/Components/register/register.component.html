@@ -9,11 +9,12 @@
         Employee Name is required.
     </div>
 
-    <label for="gender">Gender:</label>
-    <input type="text" id="gender" name="gender" [(ngModel)]="employee['gender']" required>
-    <div *ngIf="employeeForm.controls['gender']?.invalid && employeeForm.controls['gender']?.touched  && !registrationSuccess"
-        style="color: red;">
-        Gender is required.
+    <div>
+        <label for="gender">Gender</label>
+        <select id="gender" [(ngModel)]="employee.gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
     </div>
 
     <label for="email">Email:</label>

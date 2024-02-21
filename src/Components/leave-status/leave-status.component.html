@@ -1,28 +1,29 @@
 <div class="leave-request-list">
-    <h2>Leave Status</h2>
-    <table class="leave-table">
-      <thead>
-        <tr>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Leave Type</th>
-          <th>Reason</th>
-          <th>Status</th>
-          <th>Description</th>
-          <!-- <th>Manager ID</th> -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let leaveRequest of leaveRequests">
-          <td>{{ leaveRequest.startDate }}</td>
-          <td>{{ leaveRequest.endDate }}</td>
-          <td>{{ leaveRequest.leaveTypeId ? leaveRequest.leaveTypeId.leaveTypeName : 'N/A' }}</td>
-          <td>{{ leaveRequest.reason }}</td>
-          <td>{{ leaveRequest.status }}</td>
-          <td>{{leaveRequest.description}}</td>
-          <!-- <td>{{ leaveRequest.managerId }}</td> -->
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h2>Leave Status</h2>
+  <table class="leave-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Number of Days</th>
+        <th>Leave Type</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leaveRequest of leaveRequests; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ leaveRequest.startDate }}</td>
+        <td>{{ leaveRequest.endDate }}</td>
+        <td>{{ leaveRequest.numberOfDays }}</td>
+        <td>{{ leaveRequest.leaveTypeId ? leaveRequest.leaveTypeId.leaveTypeName : 'N/A' }}</td>
+        <td>{{ leaveRequest.reason }}</td>
+        <td [style.background-color]="getStatusColor(leaveRequest.status)">{{ leaveRequest.status }}</td>
+        <td>{{ leaveRequest.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

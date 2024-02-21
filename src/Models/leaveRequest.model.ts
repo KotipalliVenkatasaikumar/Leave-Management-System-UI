@@ -10,7 +10,8 @@ export class LeaveRequest {
     public reason: string,
     public status: string,
     public managerId: number,
-    public description: string
+    public description: string,
+    public numberOfDays:number
     
   ) {}
  

@@ -10,18 +10,17 @@
     <table class="leave-table">
         <thead>
             <tr>
-                <th>leaveType-Id</th>
+                <th>#</th>
                 <th>leaveTypeName</th>
                 <th>defaultLeaves </th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let leaveType of  adminLeaveLeaveTypes">
-                <td>{{ leaveType.leaveTypeId }}</td>
+            <tr *ngFor="let leaveType of  adminLeaveLeaveTypes; let i =index">
+                <td>{{i +1}}</td>
                 <td>{{ leaveType.leaveTypeName }}</td>
                 <td>{{ leaveType.defaultLeaves }}</td>
-
                 <td><button class="Edit" (click)="navigateToEditLeave(leaveType)">Edit</button>
                     <span class="button-gap"></span>
                     <button class="delete" (click)="navigateToEDeleteLeave(leaveType)">Delete</button>

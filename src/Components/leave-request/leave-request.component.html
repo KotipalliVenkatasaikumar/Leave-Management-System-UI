@@ -1,32 +1,36 @@
-
 <div>
   <h2>Leave Request</h2>
   <form #leaveRequestForm="ngForm" (submit)="submitForm()">
     <div class="form-group">
       <label for="start_date">Start Date:</label>
-      <input type="date" class="form-control" id="start_date" name="start_date" [(ngModel)]="leaveRequest.startDate" required />
+      <input type="date" class="form-control" id="start_date" name="start_date" [(ngModel)]="leaveRequest.startDate"
+        required />
     </div>
     <div class="form-group">
       <label for="end_date">End Date:</label>
-      <input type="date" class="form-control" id="end_date" name="end_date" [(ngModel)]="leaveRequest.endDate" required />
+      <input type="date" class="form-control" id="end_date" name="end_date" [(ngModel)]="leaveRequest.endDate"
+        required />
     </div>
     <div class="form-group">
       <label for="leaveTypeId">Leave Type:</label>
-      <select id="leaveTypeId" name="leaveTypeId" [(ngModel)]="selectedLeaveType" required>
-        <option *ngFor="let leaveType of leaveTypes" [ngValue]="leaveType">{{ leaveType.leaveTypeName }}</option>
+      <select id="leaveTypeId" name="leaveTypeId" [(ngModel)]="selectedLeaveType" (change)="getLeaves()" required>
+        <option *ngFor="let leaveType of leaveTypes" [ngValue]="leaveType">
+          {{ leaveType.leaveTypeName }}
+        </option>
       </select>
     </div>
-        <div class="form-group">
+    <div class="form-group" *ngIf="selectedLeaveBalance.length > 0">
+      <label class="available" for="balance">Available Balance:</label>
+      <select id="balance" name="balance" class="form-control" disabled>
+        <option *ngFor="let balance of selectedLeaveBalance" [ngValue]="balance.leaveBalance">
+          {{ balance.leaveBalance }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
       <label for="reason">Reason:</label>
       <textarea class="form-control" id="reason" name="reason" [(ngModel)]="leaveRequest.reason" required></textarea>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="leaveRequestForm.invalid">Submit</button>
   </form>
 </div>
-
-
-
-
-
-
-

@@ -1,5 +1,3 @@
-// leave-request.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { LeaveRequestServiceService } from '../../Services/leave-request-service.service';
 import { LeavetypesService } from 'src/Services/leavetypes.service';
@@ -7,6 +5,8 @@ import { LeaveRequest } from 'src/Models/leaveRequest.model';
 import { LeaveType } from 'src/Models/leaveType.model';
 import { Employee } from 'src/Models/employe.model';
 import { Router } from '@angular/router';
+import { LeaveBalanceService } from 'src/Services/leave-balance.service';
+import { LeaveBalance } from 'src/Models/LeaveBalance.model';
 
 @Component({
   selector: 'app-leave-request',
@@ -15,21 +15,27 @@ import { Router } from '@angular/router';
 })
 export class LeaveRequestComponent implements OnInit {
 
-  public employee = new Employee(0,'', '', '', '', '');
+  public employee = new Employee(0, '', '', '', '', '');
+  leavetype:LeaveType=new LeaveType(0,"",0)
   public selectedLeaveType: LeaveType | null = null;
-
+  public currentLeavetype: string | undefined; 
+  public availablebalance: string | undefined; 
   public gender: string | undefined;
-
-  leaveRequest: LeaveRequest = new LeaveRequest(this.employee, '', '', null, '', '', 2, "");
+  public employeeId!: number;
+  public currentLeaves:number=0; 
+  public leaveTypeWithBalance?:string
+  leaveRequest: LeaveRequest = new LeaveRequest(this.employee, '', '', null, '', '', 2, "",0);
+  public selectedLeaveBalance:LeaveBalance[]=[];
   leaveTypes: LeaveType[] = [];
+  leaveBalances: LeaveBalance[] = [];
+  remainingLeaveBalances: Map<number, number> = new Map<number, number>();
 
   constructor(
     private leaveRequestService: LeaveRequestServiceService,
     private leaveType: LeavetypesService,
     private router: Router,
-  ) {
-
-  }
+    private leaveBalance: LeaveBalanceService,
+  ) { }
 
   ngOnInit(): void {
     var emp = localStorage.getItem("employee");
@@ -37,13 +43,14 @@ export class LeaveRequestComponent implements OnInit {
       this.employee = JSON.parse(emp);
       console.log(this.employee);
       this.gender = this.employee.gender;
+      this.employeeId = this.employee.employeeId
     } else {
       console.log("User not found");
     }
     const gender = this.gender || 'both';
     this.getLeaveTypes(gender);
+    this.loadLeaveBalance();
   }
-
 
   submitForm() {
     var e = localStorage.getItem('employee');
@@ -62,39 +69,69 @@ export class LeaveRequestComponent implements OnInit {
 
     this.leaveRequest.leaveTypeId = this.selectedLeaveType;
     this.leaveRequest.managerId = 2;
-    // console.log(this.leaveRequest);
+
     this.leaveRequestService.submitLeaveRequest(this.leaveRequest).subscribe(
       (response) => {
-        // alert(response)
-        this.router.navigate(['dashboard/leavestatus']) // Navigating to 'leavestatus' route
+        this.router.navigate(['dashboard/leavestatus']);
         console.log('Leave request submitted successfully:', response);
       },
       (error) => {
         console.error('Error occurred while submitting leave request:', error);
       }
     );
-
   }
 
+  getLeaves(){
+    if (!this.selectedLeaveType) {
+      console.error('No leave type selected');
+      return;
+    }
+    const leaveTypeName = this.selectedLeaveType.leaveTypeName;
+    if(leaveTypeName!=null){
+      this.selectedLeaveBalance= this.leaveBalances.filter(balance => balance.leaveType.leaveTypeName === leaveTypeName);
+    }
+    console.log(this.selectedLeaveBalance);
+  // this.currentLeaves=filteredBalances.
+  }
 
   getLeaveTypes(gender: string) {
     this.leaveType.getLeaveTypes().subscribe((data) => {
-
-      // Filter leave types based on gender
       if (gender === 'male') {
         this.leaveTypes = data.filter(type => type.leaveTypeName !== 'Maternity Leave');
       } else if (gender === 'female') {
         this.leaveTypes = data.filter(type => type.leaveTypeName !== 'Paternity Leave');
       } else {
-        this.leaveTypes = data; // If gender is not specified or 'both', display all leave types
-        // If gender is not specified or 'both', display all leave types
+        this.leaveTypes = data;
+
+        // this.leaveType.leaveTypeWithBalance=50;
       }
     });
   }
 
+  loadLeaveBalance(): void {
+    if (this.employeeId !== null) {
+      this.leaveBalance.getLeaveBalance(this.employeeId).subscribe(
+        (leaveBalances: LeaveBalance[]) => {
+          console.log(leaveBalances);
+          this.leaveBalances = leaveBalances;
+          this.updateLeaveBalances();
+        },
+        (error: any) => {
+          console.error('Error fetching leave balance:', error);
+        }
+      );
+    } else {
+      console.error('EmployeeId is null.');
+    }
+  }
 
+  updateLeaveBalances(): void {
+    this.leaveBalances.forEach(balance => {
+      this.remainingLeaveBalances.set(balance.leaveType.leaveTypeId, balance.leaveBalance);
+    });
+  }
 
-
-
-
+  getRemainingLeaveBalance(leaveTypeId: number): number {
+    return this.remainingLeaveBalances.get(leaveTypeId) || 0;
+  }
 }

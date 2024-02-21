@@ -24,18 +24,29 @@ export class LeaveStatusComponent implements OnInit {
     }
   }
 
-  
   fetchLeaveRequests(): void {
     if (this.employeeId) {
       this.leaveStatusService.getLeaveRequestsByEmployeeId(this.employeeId).subscribe(
         (leaveRequest: LeaveRequest[]) => {
           this.leaveRequests = leaveRequest;
-
         },
         (error: any) => {
           console.error('Error fetching leave requests:', error);
         }
       );
+    }
+  }
+
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'Pending':
+        return '#ccc'; 
+      case 'Approved':
+        return '#4CAF50'; 
+      case 'Rejected':
+        return '#f44336'; 
+      default:
+        return ''; 
     }
   }
 }

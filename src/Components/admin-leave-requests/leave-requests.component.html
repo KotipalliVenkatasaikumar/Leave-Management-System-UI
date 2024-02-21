@@ -1,30 +1,33 @@
 <div>
-    <h2>Leave Requests</h2>
-    <table class="leave-table">
-      <thead >
-        <tr>
-          <th>Employee Name</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Leave Type</th>
-          <th>Reason</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let request of adminLeaveRequests">
-          <td>{{ request.employeeId.employeeName }}</td>
-          <td>{{ request.startDate }}</td>
-          <td>{{ request.endDate }}</td>
-          <td>{{ request.leaveTypeId?.leaveTypeName }}</td>
-          <td>{{ request.reason }}</td>
-          <td>
-            <button class="accept" (click)="acceptRequest(request)">Accept</button>
-            <span class="button-gap"></span>
-            <button class="reject" (click)="rejectRequest(request)">Reject</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h2>Leave Requests</h2>
+  <table class="leave-table">
+    <thead >
+      <tr>
+        <th>#</th>
+        <th>Employee Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Number Of Days</th>
+        <th>Leave Type</th>
+        <th>Reason</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of adminLeaveRequests; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ request.employeeId.employeeName }}</td>
+        <td>{{ request.startDate }}</td>
+        <td>{{ request.endDate }}</td>
+        <td style="text-align: center;">{{ request.numberOfDays }}</td>
+        <td>{{ request.leaveTypeId?.leaveTypeName }}</td>
+        <td>{{ request.reason }}</td>
+        <td>
+          <button class="accept" (click)="acceptRequest(request)">Accept</button>
+          <span class="button-gap"></span>
+          <button class="reject" (click)="rejectRequest(request)">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

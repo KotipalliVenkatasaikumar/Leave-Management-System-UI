@@ -10,7 +10,7 @@ import { GetEmployeesComponent } from 'src/Components/admin-get-employees/get-em
 import { GetLeaveTypesComponent } from 'src/Components/admin-get-leave-types/get-leave-types.component';
 import { LeaveStatusComponent } from 'src/Components/leave-status/leave-status.component';
 import { LeaveBalanceComponent } from 'src/Components/leave-balance/leave-balance.component';
-import { MyLeavesComponent } from 'src/Components/my-leaves/my-leaves.component';
+
 import { AddLeaveTypeComponent } from 'src/Components/add-leave-type/add-leave-type.component';
 import { EmployeeEditComponent } from 'src/Components/admin-employee-edit/employee-edit.component';
 import { HolidayCalenderComponent } from 'src/Components/admin-holiday-calender/holiday-calender.component';
@@ -30,7 +30,6 @@ const routes: Routes = [
   {
     path: '', redirectTo: '/login', pathMatch: 'full',
   },
-
   
   {
     path: 'dashboard', component: DashboardComponent,
@@ -44,14 +43,9 @@ const routes: Routes = [
       {
         path: 'leavebalance', component: LeaveBalanceComponent
       },
-      {
-        path: 'myleaves', component: MyLeavesComponent
-      },
-      {
+          {
         path: 'userholidayCalender', component: UserHolidayCalenderComponent
       },
-
-
 
     ]
   },

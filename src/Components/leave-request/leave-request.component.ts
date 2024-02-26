@@ -18,12 +18,8 @@ export class LeaveRequestComponent implements OnInit {
   public employee = new Employee(0, '', '', '', '', '');
   leavetype:LeaveType=new LeaveType(0,"",0)
   public selectedLeaveType: LeaveType | null = null;
-  public currentLeavetype: string | undefined; 
-  public availablebalance: string | undefined; 
   public gender: string | undefined;
   public employeeId!: number;
-  public currentLeaves:number=0; 
-  public leaveTypeWithBalance?:string
   leaveRequest: LeaveRequest = new LeaveRequest(this.employee, '', '', null, '', '', 2, "",0);
   public selectedLeaveBalance:LeaveBalance[]=[];
   leaveTypes: LeaveType[] = [];
@@ -72,6 +68,7 @@ export class LeaveRequestComponent implements OnInit {
 
     this.leaveRequestService.submitLeaveRequest(this.leaveRequest).subscribe(
       (response) => {
+        
         this.router.navigate(['dashboard/leavestatus']);
         console.log('Leave request submitted successfully:', response);
       },
@@ -103,7 +100,6 @@ export class LeaveRequestComponent implements OnInit {
       } else {
         this.leaveTypes = data;
 
-        // this.leaveType.leaveTypeWithBalance=50;
       }
     });
   }

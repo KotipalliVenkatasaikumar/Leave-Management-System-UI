@@ -17,7 +17,6 @@ import { GetEmployeesComponent } from '../Components/admin-get-employees/get-emp
 import { GetLeaveTypesComponent } from '../Components/admin-get-leave-types/get-leave-types.component';
 import { LeaveStatusComponent } from '../Components/leave-status/leave-status.component';
 import { LeaveBalanceComponent } from '../Components/leave-balance/leave-balance.component';
-import { MyLeavesComponent } from '../Components/my-leaves/my-leaves.component';
 import { AddLeaveTypeComponent } from '../Components/add-leave-type/add-leave-type.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -47,7 +46,6 @@ import { UserHolidayCalenderComponent } from '../Components/user-holiday-calende
     GetLeaveTypesComponent,
     LeaveStatusComponent,
     LeaveBalanceComponent,
-    MyLeavesComponent,
     AddLeaveTypeComponent,
     EmployeeEditComponent,
     HolidayCalenderComponent,

@@ -31,7 +31,9 @@ export class LeaveRequestComponent implements OnInit {
     private leaveType: LeavetypesService,
     private router: Router,
     private leaveBalance: LeaveBalanceService,
-  ) { }
+  ) {
+
+   }
 
   ngOnInit(): void {
     var emp = localStorage.getItem("employee");
@@ -52,7 +54,7 @@ export class LeaveRequestComponent implements OnInit {
     var e = localStorage.getItem('employee');
     if (e) {
       this.employee = JSON.parse(e);
-      this.leaveRequest.employeeId = this.employee;
+      this.leaveRequest.employee = this.employee;
     } else {
       console.error('Employee data not found in local storage');
       return;
@@ -99,18 +101,16 @@ export class LeaveRequestComponent implements OnInit {
         this.leaveTypes = data.filter(type => type.leaveTypeName !== 'Paternity Leave');
       } else {
         this.leaveTypes = data;
-
       }
     });
   }
 
   loadLeaveBalance(): void {
     if (this.employeeId !== null) {
-      this.leaveBalance.getLeaveBalance(this.employeeId).subscribe(
-        (leaveBalances: LeaveBalance[]) => {
-          console.log(leaveBalances);
-          this.leaveBalances = leaveBalances;
-          this.updateLeaveBalances();
+      this.leaveBalance.getLeaveBalance(this.employeeId).subscribe((leaveBalances: LeaveBalance[]) => {
+         console.log(leaveBalances);
+         this.leaveBalances = leaveBalances;
+          // this.updateLeaveBalances();
         },
         (error: any) => {
           console.error('Error fetching leave balance:', error);
@@ -130,4 +130,5 @@ export class LeaveRequestComponent implements OnInit {
   getRemainingLeaveBalance(leaveTypeId: number): number {
     return this.remainingLeaveBalances.get(leaveTypeId) || 0;
   }
+  
 }

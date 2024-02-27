@@ -22,8 +22,11 @@ export class LeaveRequestsComponent implements OnInit {
     this.leaveRequestsService.getLeaveRequests().subscribe(requests => {
       console.log(requests);
       this.adminLeaveRequests = requests;
+      console.log(this.adminLeaveRequests);
+      
     });
   }
+
 
   acceptRequest(request: AdminLeaveRequests) {
     request.status = "Approved";

@@ -16,7 +16,7 @@
     <tbody>
       <tr *ngFor="let request of adminLeaveRequests; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ request.employeeId.employeeName }}</td>
+        <td>{{ request.employee.employeeName }}</td>
         <td>{{ request.startDate }}</td>
         <td>{{ request.endDate }}</td>
         <td style="text-align: center;">{{ request.numberOfDays }}</td>

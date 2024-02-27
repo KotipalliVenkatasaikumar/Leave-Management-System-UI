@@ -42,7 +42,7 @@ export class GetLeaveTypesComponent implements OnInit {
 
 
   navigateToEditLeave(leaveType:LeaveType) {
-    console.log(leaveType)
+    console.log(leaveType);
     this.router.navigate(['/admin/editLeaveType'], { state: { leaveType: leaveType } });
   }
 

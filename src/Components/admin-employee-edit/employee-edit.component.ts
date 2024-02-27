@@ -14,7 +14,7 @@ export class EmployeeEditComponent implements OnInit {
   constructor( private employeeService: EmployeeServiceService , private router:Router) { }
 
 
-  employee: Employee = new Employee(0,"", "", "", "", "",);
+  employee: Employee = new Employee(0,"", "", "", "", "");
 
   ngOnInit(): void {
    this.employee=history.state.employee;
@@ -25,6 +25,7 @@ export class EmployeeEditComponent implements OnInit {
       this.employeeService.updateEmployee(this.employee).subscribe(
         () => {
           console.log('Employee updated successfully.');
+          
           this.router.navigate(['/admin/employees']); // Navigate to employee list page
         },
         (error: any) => {

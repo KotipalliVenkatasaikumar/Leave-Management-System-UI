@@ -6,6 +6,5 @@ export class LeaveBalanceDTO {
         public leave_type_id: LeaveType,
         public leave_balance: number,
         public leave_type_name: string,
-        public leaveTypeWithBalance:string,
-    ) { }
+          ) { }
 }

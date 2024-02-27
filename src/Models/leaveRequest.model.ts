@@ -3,7 +3,7 @@ import { LeaveType } from "./leaveType.model";
 
 export class LeaveRequest {
   constructor(
-    public employeeId: Employee,
+    public employee: Employee,
     public startDate: string,
     public endDate: string,
     public leaveTypeId: LeaveType | null, // Modified parameter to accept LeaveType or null

@@ -26,9 +26,8 @@ export class LeaveStatusComponent implements OnInit {
 
   fetchLeaveRequests(): void {
     if (this.employeeId) {
-      this.leaveStatusService.getLeaveRequestsByEmployeeId(this.employeeId).subscribe(
-        (leaveRequest: LeaveRequest[]) => {
-          this.leaveRequests = leaveRequest;
+      this.leaveStatusService.getLeaveRequestsByEmployeeId(this.employeeId).subscribe((leaveRequest: LeaveRequest[]) => {
+        this.leaveRequests = leaveRequest;
         },
         (error: any) => {
           console.error('Error fetching leave requests:', error);

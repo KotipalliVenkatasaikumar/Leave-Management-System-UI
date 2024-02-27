@@ -11,42 +11,38 @@ import { EmployeeServiceService } from 'src/Services/employee-service.service';
   styleUrls: ['./get-employees.component.css']
 })
 export class GetEmployeesComponent implements OnInit {
-public employees:Employee[]=[];
+  public employees: Employee[] = [];
 
   constructor(private employeeService: EmployeeServiceService, private router: Router) { }
-
   ngOnInit(): void {
     this.getEmployees();
   }
 
 
-
-  navigateToEditEmployee(employee:Employee) {
+  navigateToEditEmployee(employee: Employee) {
     console.log(employee)
     this.router.navigate(['/admin/editemployee'], { state: { employee: employee } });
-    
-    }
 
-    
-    navigateToEDeletemployee(employee: Employee) {
-      if (confirm('Are you sure you want to delete this employee?')) {
-        this.employeeService.deleteEmployee(employee.employeeId).subscribe(
-          () => {
-            console.log('Employee deleted successfully.');
-            this.getEmployees(); // Refresh employee list after deletion
-          },
-          (error: any) => {
-            console.error('Error deleting employee:', error);
-          }
-        );
-      }
+  }
+
+  navigateToDeleteEmployee(employee: Employee) {
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.employeeService.deleteEmployee(employee.employeeId).subscribe(
+        () => {
+          console.log('Employee deleted successfully.');
+          this.getEmployees(); // Refresh employee list after deletion
+        },
+        (error: any) => {
+          console.error('Error deleting employee:', error);
+        }
+      );
     }
-    
+  }
 
   getEmployees(): void {
-   this.employeeService.getEmployees().subscribe((r)=>{
-    this.employees = r;
-   });
+    this.employeeService.getEmployees().subscribe((data) => {
+      this.employees = data;
+    });
   }
 
 

@@ -7,14 +7,13 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LoginServiceService {
-  private apiUrl = 'http://localhost:8080/api/employee/login'; 
+  private apiUrl = 'http://localhost:8080/api/employee/login';
 
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<any> {
     const body = { email, password };
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
     return this.http.post(this.apiUrl, body, { headers }).pipe(
       map(response => response),
       catchError(error => {

@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: '', redirectTo: '/login', pathMatch: 'full',
   },
-  
+
   {
     path: 'dashboard', component: DashboardComponent,
     children: [
@@ -43,7 +43,7 @@ const routes: Routes = [
       {
         path: 'leavebalance', component: LeaveBalanceComponent
       },
-          {
+      {
         path: 'userholidayCalender', component: UserHolidayCalenderComponent
       },
 
@@ -69,7 +69,7 @@ const routes: Routes = [
       },
       {
         path: 'addLeaveType',
-         component:AddLeaveTypeComponent
+        component: AddLeaveTypeComponent
       },
       {
         path: 'register', component: RegisterComponent
@@ -81,13 +81,13 @@ const routes: Routes = [
         path: 'holidayCalender', component: HolidayCalenderComponent
       },
       {
-        path: 'editLeaveType', component:LeaveTypeEditComponent
+        path: 'editLeaveType', component: LeaveTypeEditComponent
       },
       {
-        path : 'addHoliday', component:AddHolidayComponent
+        path: 'addHoliday', component: AddHolidayComponent
       },
       {
-        path: 'editHoliday', component:EditHolidayComponent
+        path: 'editHoliday', component: EditHolidayComponent
       }
 
 
@@ -95,7 +95,7 @@ const routes: Routes = [
     ]
   },
 
- 
+
 
 ];
 
